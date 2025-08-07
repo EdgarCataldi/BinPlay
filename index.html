@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BinPlay</title>
-    <link rel="stylesheet" href="styles/main.css" />
-  </head>
-  <body>
-    <div class="container">
-      <img src="assets/logo.png" alt="Logo BinPlay" width="200" />
-      <h1>Bienvenido a BinPlay</h1>
-      <p>Tu espacio para llevar registro de tus videojuegos favoritos.</p>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayBin</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="brand">BinPlay</span>
+      <img src="assets/Logo.png" alt="Logo" class="logo-small" />
     </div>
-  </body>
+    <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
+    <div class="nav-links">
+      <a href="perfil.html">Perfil</a>
+      <a href="juegos.html">Juegos</a>
+      <a href="listas.html">Listas</a>
+      <a href="amigos.html">Amigos</a>
+      <a href="login.html">Iniciar sesión</a>
+      <a href="registro.html">Registrarse</a>
+
+      <!-- BUSCADOR -->
+      <div class="search-box">
+        <input type="text" placeholder="Buscar..." />
+        <span class="search-icon">&#128269;</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Controla tus videojuegos</h1>
+      <p>Guardá tus juegos favoritos. Segu&iacute; tu progreso. Compartí con amigos.</p>
+      <a href="registro.html" class="btn">Registrate — ¡Es gratis!</a>
+    </div>
+  </div>
+
+  <!-- JS para responsive -->
+  <script>
+    const toggleButton = document.querySelector(".toggle-menu");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggleButton.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+
+</body>
 </html>

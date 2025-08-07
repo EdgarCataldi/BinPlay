@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse - BinPlay</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link">
+          <span class="brand">BinPlay</span>
+          <img src="assets/Logo.png" alt="Logo" class="logo-small" />
+        </a>
+      </div>
+      <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="listas.html">Listas</a>
+        <a href="amigos.html">Amigos</a>
+        <a href="login.html">Iniciar sesión</a>
+        <a href="registro.html">Registrarse</a>
+
+        <div class="search-box">
+          <input type="text" placeholder="Buscar..." />
+          <span class="search-icon">&#128269;</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO DE REGISTRO -->
+    <div class="register-container">
+      <h1>Crear una cuenta</h1>
+      <form class="register-form">
+        <label for="username">Nombre de usuario</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Tu usuario"
+          required
+        />
+
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Tu correo"
+          required
+        />
+
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          required
+        />
+
+        <label for="confirm-password">Confirmar contraseña</label>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          placeholder="Repetí la contraseña"
+          required
+        />
+
+        <button type="submit" class="btn">Registrarse</button>
+
+        <p class="extra-text">
+          ¿Ya tenés cuenta? <a href="login.html">Iniciar sesión</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- JS para responsive -->
+    <script>
+      const toggleButton = document.querySelector(".toggle-menu");
+      const navLinks = document.querySelector(".nav-links");
+
+      toggleButton.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
