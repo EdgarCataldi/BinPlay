@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iniciar sesión - BinPlay</title>
-    <link rel="stylesheet" href="styles/main.css" />
-  </head>
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <div class="nav-left">
-        <a href="index.html" class="logo-link">
-          <span class="brand">BinPlay</span>
-          <img src="assets/Logo.png" alt="Logo" class="logo-small" />
-        </a>
-      </div>
-      <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
-      <div class="nav-links">
-        <a href="index.html">Inicio</a>
-        <a href="perfil.html">Perfil</a>
-        <a href="juegos.html">Juegos</a>
-        <a href="listas.html">Listas</a>
-        <a href="amigos.html">Amigos</a>
-        <a href="login.html">Iniciar sesión</a>
-        <a href="registro.html">Registrarse</a>
-        <div class="search-box">
-          <input type="text" placeholder="Buscar..." />
-          <span class="search-icon">🔍</span>
-        </div>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión - BinPlay</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
 
-    <!-- LOGIN SECTION -->
-    <div class="login-container">
-      <h1>Iniciar sesión</h1>
-      <form class="login-form">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" placeholder="Tu correo" required />
-
-        <label for="password">Contraseña</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Tu contraseña"
-          required
-        />
-
-        <button type="submit" class="btn">Ingresar</button>
-      </form>
-      <p class="extra-text">
-        ¿No tenés cuenta? <a href="registro.html">Registrate</a>
-      </p>
+  <!-- Navbar (igual que en index pero con link activo en "Login") -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <!-- Logo que vuelve al inicio -->
+      <a href="index.html" class="logo-link">
+        <span class="brand">BinPlay</span>
+        <img src="assets/Logo.png" alt="Logo" class="logo-small" />
+      </a>
     </div>
+    <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="pages/perfil.html">Perfil</a>
+      <a href="juegos.html">Juegos</a>
+      <a href="listas.html">Listas</a>
+      <a href="amigos.html">Amigos</a>
+      <a href="login.html">Iniciar sesión</a>
+      <a href="registro.html">Registrarse</a>
+      <!-- Buscador -->
+      <div class="search-box">
+        <input type="text" placeholder="Buscar..." />
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+  </nav>
 
-    <script>
-      const toggleButton = document.querySelector(".toggle-menu");
-      const navLinks = document.querySelector(".nav-links");
-      toggleButton.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-    </script>
-  </body>
+  <!-- ============================
+       FORMULARIO LOGIN
+  ============================= -->
+  <div class="login-container">
+    <h1>Iniciar sesión</h1>
+    <form class="login-form">
+      <!-- Campo email -->
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" placeholder="Tu correo" required />
+
+      <!-- Campo contraseña -->
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" placeholder="Tu contraseña" required />
+
+      <!-- Botón enviar -->
+      <button type="submit" class="btn">Ingresar</button>
+    </form>
+
+    <!-- Link a registro -->
+    <p class="extra-text">
+      ¿No tenés cuenta? <a href="registro.html">Registrate</a>
+    </p>
+  </div>
+
+  <!-- Script navbar responsive -->
+  <script>
+    const toggleButton = document.querySelector(".toggle-menu");
+    const navLinks = document.querySelector(".nav-links");
+    toggleButton.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+</body>
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas - PlayBin</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/listas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/footer.css">
+</head>
+<body>
+    <!-- Navbar (reutilizado) -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html"><img src="assets/Logo.png" alt="Logo" class="logo-small"></a>
+            <span class="brand">PlayBin</span>
+        </div>
+        <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
+        <div class="nav-links">
+            <a href="pages/perfil.html">Perfil</a>
+            <a href="juegos.html">Juegos</a>
+            <a href="listas.html" class="active">Listas</a>
+            <a href="amigos.html">Amigos</a>
+            <a href="login.html">Iniciar sesión</a>
+            <a href="registro.html">Registrarse</a>
+        </div>
+    </nav>
+
+    <!-- Encabezado de la página -->
+    <header class="lists-header">
+        <h1>Listas</h1>
+        <p class="subtitle">Descubrí colecciones curadas de juegos por la comunidad</p>
+    </header>
+
+    <!-- Barra de exploración (sticky) -->
+    <div class="explore-bar">
+        <div class="search-container">
+            <input type="text" placeholder="Buscar listas...">
+            <svg class="search-icon" viewBox="0 0 24 24">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+        </div>
+
+        <div class="filters">
+            <select class="filter-dropdown">
+                <option value="popular">Más populares</option>
+                <option value="recent">Más recientes</option>
+                <option value="updated">Actualizadas</option>
+                <option value="commented">Más comentadas</option>
+            </select>
+
+            <select class="filter-dropdown">
+                <option value="">Género</option>
+                <option value="action">Acción</option>
+                <option value="rpg">RPG</option>
+                <option value="strategy">Estrategia</option>
+            </select>
+
+            <select class="filter-dropdown">
+                <option value="">Plataforma</option>
+                <option value="pc">PC</option>
+                <option value="ps5">PS5</option>
+                <option value="xbox">Xbox</option>
+                <option value="switch">Switch</option>
+            </select>
+        </div>
+
+        <div class="tags">
+            <button class="tag-chip" data-tag="coop">Coop</button>
+            <button class="tag-chip" data-tag="single">Single-player</button>
+            <button class="tag-chip" data-tag="open-world">Mundo abierto</button>
+            <button class="tag-chip" data-tag="pixel">Pixel Art</button>
+        </div>
+    </div>
+
+    <!-- Grid de listas -->
+    <main class="lists-grid">
+        <!-- Los items se agregarán dinámicamente con JS -->
+    </main>
+
+    <!-- Botón "Cargar más" -->
+    <button class="load-more">
+        Cargar más listas
+        <div class="spinner hidden"></div>
+    </button>
+
+    <!-- Footer global -->
+    <div id="app-footer"></div>
+    <script src="scripts/inject-footer.js" defer></script>
+</body>
+</html>

@@ -1,54 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlayBin</title>
-  <link rel="stylesheet" href="styles/main.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayBin</title>
+    <!-- 🎨 CSS principal del sitio -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="icon" type="image/png" href="assets/Logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/Logo.png">
+  </head>
+  <body>
+    <!-- ============================
+       NAVBAR PRINCIPAL
+       Muestra logo, links y buscador
+  ============================= -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <!-- Nombre de marca -->
+        <span class="brand">BinPlay</span>
+        <!-- Logo pequeño -->
+        <img src="assets/Logo.png" alt="Logo" class="logo-small" />
+      </div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <span class="brand">BinPlay</span>
-      <img src="assets/Logo.png" alt="Logo" class="logo-small" />
-    </div>
-    <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
-    <div class="nav-links">
-      <a href="perfil.html">Perfil</a>
-      <a href="juegos.html">Juegos</a>
-      <a href="listas.html">Listas</a>
-      <a href="amigos.html">Amigos</a>
-      <a href="login.html">Iniciar sesión</a>
-      <a href="registro.html">Registrarse</a>
+      <!-- Botón hamburguesa (solo en mobile) -->
+      <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
 
-      <!-- BUSCADOR -->
-      <div class="search-box">
-        <input type="text" placeholder="Buscar..." />
-        <span class="search-icon">&#128269;</span>
+      <!-- Links principales del sitio -->
+      <div class="nav-links">
+        <a href="pages/perfil.html">Perfil</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="listas.html">Listas</a>
+        <a href="amigos.html">Amigos</a>
+        <a href="login.html">Iniciar sesión</a>
+        <a href="registro.html">Registrarse</a>
+
+        <!-- Buscador -->
+        <div class="search-box">
+          <input type="text" placeholder="Buscar..." />
+          <span class="search-icon">&#128269;</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================
+       HERO SECTION (Portada principal)
+       Fondo con imagen + texto + botón
+  ============================= -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Controla tus videojuegos</h1>
+        <p>
+          Guardá tus juegos favoritos. Segu&iacute; tu progreso. Compartí con
+          amigos.
+        </p>
+        <!-- Botón que lleva a registro -->
+        <a href="registro.html" class="btn">Registrate — ¡Es gratis!</a>
       </div>
     </div>
-  </nav>
 
-  <!-- HERO SECTION -->
-  <div class="hero">
-    <div class="hero-content">
-      <h1>Controla tus videojuegos</h1>
-      <p>Guardá tus juegos favoritos. Segu&iacute; tu progreso. Compartí con amigos.</p>
-      <a href="registro.html" class="btn">Registrate — ¡Es gratis!</a>
-    </div>
-  </div>
+    <!-- ============================
+       SCRIPT: navbar responsive
+       Muestra/oculta links en pantallas chicas
+  ============================= -->
+    <script>
+      const toggleButton = document.querySelector(".toggle-menu");
+      const navLinks = document.querySelector(".nav-links");
 
-  <!-- JS para responsive -->
-  <script>
-    const toggleButton = document.querySelector(".toggle-menu");
-    const navLinks = document.querySelector(".nav-links");
+      toggleButton.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
 
-    toggleButton.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-  </script>
+    <!-- ============================
+       TRENDING SECTION
+       Muestra juegos populares con:
+       - Título
+       - Grid de portadas
+       - Descripción 
+       - CTA button
+    ============================= -->
+    <section class="trending-section">
+      <!-- Contenedor principal -->
+      <div class="trending-container">
+        <!-- Encabezado -->
+        <h2 class="trending-title">Tendencia</h2>
 
-</body>
+        <!-- Grid de portadas de juegos -->
+        <div class="game-grid">
+            <div class="game-item">
+                <img src="/assets/Portada1.jpg" alt="Red Dead Redemption 2">
+            </div>
+            <div class="game-item">
+                <img src="/assets/Portada2.png" alt="Horizon">
+            </div>
+            <div class="game-item">
+                <img src="/assets/Portada3.jpg" alt="Cyberpunk 2077">
+            </div>
+            <div class="game-item">
+                <img src="/assets/Portada4.jpg" alt="Assassin's Creed Unity">
+            </div>
+            <div class="game-item">
+                <img src="/assets/Portada5.jpg" alt="Mafia">
+            </div>
+        </div>
+
+        <!-- Texto descriptivo -->
+        <p class="trending-description">Descubrí los juegos más populares del momento.</p>
+        
+        <!-- Botón call-to-action -->
+        <a href="juegos.html" class="btn-trending">Ver Juegos</a>
+      </div>
+    </section>
+
+    <div id="app-footer"></div>
+    <script src="scripts/inject-footer.js" defer></script>
+  </body>
 </html>

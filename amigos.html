@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos - PlayBin</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/footer.css">
+</head>
+<body>
+    <!-- Navbar igual que en las otras páginas -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html"><img src="assets/Logo.png" alt="Logo" class="logo-small"></a>
+            <span class="brand">PlayBin</span>
+        </div>
+        <button class="toggle-menu" aria-label="Abrir menú">&#9776;</button>
+        <div class="nav-links">
+            <a href="pages/perfil.html">Perfil</a>
+            <a href="juegos.html">Juegos</a>
+            <a href="listas.html">Listas</a>
+            <a href="amigos.html" class="active">Amigos</a>
+            <a href="login.html">Iniciar sesión</a>
+            <a href="registro.html">Registrarse</a>
+        </div>
+    </nav>
+
+    <main class="friends-container">
+        <div class="friends-header">
+            <h1><i class="fas fa-users"></i> Amigos</h1>
+            <button class="add-friend-btn">
+                <i class="fas fa-user-plus"></i> Agregar Amigo
+            </button>
+        </div>
+
+        <div class="friends-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchFriends" placeholder="Buscar amigos...">
+        </div>
+
+        <div class="friends-list">
+            <div class="friend-card">
+                <img src="assets/Avatar1.jpg" alt="Avatar" class="friend-avatar">
+                <div class="friend-info">
+                    <h3>@MaxPower</h3>
+                </div>
+                <div class="friend-actions">
+                    <button class="action-btn msg-btn" title="Enviar mensaje">
+                        <i class="fas fa-comment"></i>
+                    </button>
+                    <button class="action-btn remove-btn" title="Eliminar amigo">
+                        <i class="fas fa-user-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="friend-card">
+                <img src="assets/Avatar2.png" alt="Avatar" class="friend-avatar">
+                <div class="friend-info">
+                    <h3>@GamerPro</h3>
+                </div>
+                <div class="friend-actions">
+                    <button class="action-btn msg-btn" title="Enviar mensaje">
+                        <i class="fas fa-comment"></i>
+                    </button>
+                    <button class="action-btn remove-btn" title="Eliminar amigo">
+                        <i class="fas fa-user-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="friend-card">
+                <img src="assets/Avatar3.png" alt="Avatar" class="friend-avatar">
+                <div class="friend-info">
+                    <h3>@PlayQueen</h3>
+                </div>
+                <div class="friend-actions">
+                    <button class="action-btn msg-btn" title="Enviar mensaje">
+                        <i class="fas fa-comment"></i>
+                    </button>
+                    <button class="action-btn remove-btn" title="Eliminar amigo">
+                        <i class="fas fa-user-minus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+    <script src="scripts/inject-footer.js" defer></script>
+    <script>
+        // Búsqueda en tiempo real
+        const searchInput = document.getElementById('searchFriends');
+        const friendCards = document.querySelectorAll('.friend-card');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+
+            friendCards.forEach(card => {
+                const username = card.querySelector('h3').textContent.toLowerCase();
+                if (username.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Botones de eliminar amigo
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (confirm('¿Seguro que quieres eliminar a este amigo?')) {
+                    this.closest('.friend-card').remove();
+                }
+            });
+        });
+
+        // Botón hamburguesa (mobile)
+        const toggleButton = document.querySelector('.toggle-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggleButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

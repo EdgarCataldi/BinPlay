@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil – PlayBin</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="icon" type="image/png" href="../assets/Logo.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/Logo.png">
+</head>
+
+<body>
+    <!-- Navbar con links ajustados para carpeta /pages -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <!-- Logo que lleva al inicio -->
+            <a href="../index.html"><img src="../assets/Logo.png" alt="Logo" class="logo-small" /></a>
+            <span class="brand">PlayBin</span>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Inicio</a>
+            <a href="./perfil.html" aria-current="page">Perfil</a>
+            <a href="../login.html">Login</a>
+            <a href="../registro.html">Registro</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- HEADER DE PERFIL -->
+        <section class="profile-header">
+            <img class="avatar" src="../assets/Avatar.jpg" alt="Avatar de Edgar" />
+            <div class="ph-info">
+                <h1 class="username">@Edgar</h1>
+                <p class="user-meta">
+                    🌎 Argentina · 🎮 Gamer desde 2025
+                </p>
+                <div class="stats">
+                    <div class="stat stat-finished">
+                        <span class="stat-icon">🏆</span>
+                        <span class="stat-num">12</span>
+                        <span class="stat-label">Terminados</span>
+                    </div>
+                    <div class="stat stat-playing">
+                        <span class="stat-icon">🎮</span>
+                        <span class="stat-num">3</span>
+                        <span class="stat-label">En Progreso</span>
+                    </div>
+                    <div class="stat stat-paused">
+                        <span class="stat-icon">⏸️</span>
+                        <span class="stat-num">5</span>
+                        <span class="stat-label">Pausados</span>
+                    </div>
+                    <div class="stat stat-abandoned">
+                        <span class="stat-icon">❌</span>
+                        <span class="stat-num">2</span>
+                        <span class="stat-label">Abandonados</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIBLIOTECA -->
+        <section class="game-library">
+            <div class="library-header">
+                <h2>Mi Biblioteca</h2>
+                <select id="gameFilter" class="filter-games">
+                    <option value="all">Todos los juegos</option>
+                    <option value="finished">Terminados</option>
+                    <option value="playing">En progreso</option>
+                    <option value="paused">Pausados</option>
+                    <option value="abandoned">Abandonados</option>
+                </select>
+            </div>
+
+            <!-- Tarjetas de juegos -->
+            <div class="game-cards">
+                <!-- Repetir este bloque para cada juego -->
+                <article class="game-card">
+                    <div class="game-top">
+                        <img class="game-cover" src="../assets/Portada1.jpg" alt="Red Dead Redemption 2" />
+                        <div class="game-info">
+                            <h3 class="game-title">Red Dead Redemption 2</h3>
+                            <p class="game-meta">
+                                🎮 PC · 📅 2018 · ⭐ 95%
+                            </p>
+                            <span class="badge">
+                                <span class="status-dot dot-finished"></span>
+                                Terminado
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-top">
+                        <img class="game-cover" src="../assets/Portada2.png" alt="Horizon Forbidden West" />
+                        <div class="game-info">
+                            <h3 class="game-title">Horizon Forbidden West</h3>
+                            <p class="game-meta">
+                                🎮 PC · 📅 2022 · ⭐ 89%
+                            </p>
+                            <span class="badge">
+                                <span class="status-dot dot-playing"></span>
+                                En progreso
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-top">
+                        <img class="game-cover" src="../assets/Portada3.jpg" alt="Cyberpunk 2077" />
+                        <div class="game-info">
+                            <h3 class="game-title">Cyberpunk 2077</h3>
+                            <p class="game-meta">
+                                🎮 PC · 📅 2020 · ⭐ 86%
+                            </p>
+                            <span class="badge">
+                                <span class="status-dot dot-paused"></span>
+                                Pausado
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-top">
+                        <img class="game-cover" src="../assets/Portada4.jpg" alt="Assassin's Creed Unity" />
+                        <div class="game-info">
+                            <h3 class="game-title">Assassin's Creed Unity</h3>
+                            <p class="game-meta">
+                                🎮 PC · 📅 2014 · ⭐ 72%
+                            </p>
+                            <span class="badge">
+                                <span class="status-dot dot-abandoned"></span>
+                                Abandonado
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div id="app-footer"></div>
+    <script src="../scripts/inject-footer.js" defer></script>
+
+    <!-- Script para filtrar juegos -->
+    <script>
+        const gameFilter = document.getElementById('gameFilter');
+        const gameCards = document.querySelectorAll('.game-card');
+
+        gameFilter.addEventListener('change', function() {
+            const selectedStatus = this.value;
+            
+            gameCards.forEach(card => {
+                const badge = card.querySelector('.badge');
+                const badgeText = badge.textContent.trim().toLowerCase();
+                
+                if (selectedStatus === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    const statusMap = {
+                        'finished': 'terminado',
+                        'playing': 'en progreso',
+                        'paused': 'pausado',
+                        'abandoned': 'abandonado'
+                    };
+                    
+                    if (badgeText === statusMap[selectedStatus]) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
